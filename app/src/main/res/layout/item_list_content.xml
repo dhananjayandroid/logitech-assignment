@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <import type="android.view.View"/>
+    <variable
+      name="movie"
+      type="com.djay.logitech.service.model.Movie"/>
+    <variable
+      name="navigator"
+      type="com.djay.logitech.ui.itemlist.ItemListNavigator"/>
+
+  </data>
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/text_margin"
+    android:gravity="center"
+    android:onClick="@{() -> navigator.moveToDetailScreen(movie, ivPoster)}"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+      android:id="@+id/iv_poster"
+      android:layout_width="150dp"
+      android:layout_height="190dp"
+      android:contentDescription="@string/movie_poster"
+      android:scaleType="centerCrop"
+      android:transitionName="@string/movie_poster"
+      app:loadImage="@{movie}"
+      tools:ignore="UnusedAttribute"/>
+
+    <TextView
+      android:id="@+id/tv_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:ellipsize="end"
+      android:gravity="center"
+      android:lines="2"
+      android:maxLines="2"
+      android:text="@{movie.title}"
+      android:textAppearance="?attr/textAppearanceListItem"/>
+  </LinearLayout>
+</layout>

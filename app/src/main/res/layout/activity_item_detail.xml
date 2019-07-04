@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <import type="android.view.View"/>
+    <import type="android.text.Html"/>
+    <variable
+      name="viewmodel"
+      type="com.djay.logitech.ui.itemdetail.ItemDetailViewModel"/>
+
+  </data>
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.itemdetail.ItemDetailActivity"
+    tools:ignore="MergeRootFrame">
+
+    <com.google.android.material.appbar.AppBarLayout
+      android:id="@+id/app_bar"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/app_bar_height"
+      android:fitsSystemWindows="true"
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+      <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:contentScrim="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:toolbarId="@+id/toolbar">
+        <ImageView
+          android:id="@+id/iv_poster"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:adjustViewBounds="true"
+          android:contentDescription="@string/movie_poster"
+          android:scaleType="center"
+          android:transitionName="@string/movie_poster"
+          app:loadImage="@{viewmodel.movie}"
+          tools:ignore="UnusedAttribute"/>
+        <androidx.appcompat.widget.Toolbar
+          android:id="@+id/detail_toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          app:layout_collapseMode="pin"
+          app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+          app:title="@{viewmodel.movie.title}"/>
+
+      </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+      android:id="@+id/item_detail_container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_plot"
+          style="@style/DetailsTextView"
+          android:text="@{viewmodel.movie.plot}"
+          android:visibility="@{viewmodel.movie.plot == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_year"
+          style="@style/DetailsTextView"
+          android:layout_marginTop="20dp"
+          android:text="@{Html.fromHtml(String.format(@string/year, viewmodel.movie.year))}"
+          android:visibility="@{viewmodel.movie.year == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/rated, viewmodel.movie.rated))}"
+          android:visibility="@{viewmodel.movie.rated == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/released, viewmodel.movie.released))}"
+          android:visibility="@{viewmodel.movie.released == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/runtime, viewmodel.movie.runtime))}"
+          android:visibility="@{viewmodel.movie.runtime == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/genre, viewmodel.movie.genre))}"
+          android:visibility="@{viewmodel.movie.genre == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/director, viewmodel.movie.director))}"
+          android:visibility="@{viewmodel.movie.director == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/writer, viewmodel.movie.writer))}"
+          android:visibility="@{viewmodel.movie.writer == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/actors, viewmodel.movie.actors))}"
+          android:visibility="@{viewmodel.movie.actors == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/language, viewmodel.movie.language))}"
+          android:visibility="@{viewmodel.movie.language == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/country, viewmodel.movie.country))}"
+          android:visibility="@{viewmodel.movie.country == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/awards, viewmodel.movie.awards))}"
+          android:visibility="@{viewmodel.movie.awards == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/ratings, viewmodel.movie.ratings))}"
+          android:visibility="@{viewmodel.movie.ratings == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/metascore, viewmodel.movie.metascore))}"
+          android:visibility="@{viewmodel.movie.metascore == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/imdbRating, viewmodel.movie.imdbRating))}"
+          android:visibility="@{viewmodel.movie.imdbRating == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/imdbVotes, viewmodel.movie.imdbVotes))}"
+          android:visibility="@{viewmodel.movie.imdbVotes == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/imdbID, viewmodel.movie.imdbID))}"
+          android:visibility="@{viewmodel.movie.imdbID == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/type, viewmodel.movie.type))}"
+          android:visibility="@{viewmodel.movie.type == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/dvd, viewmodel.movie.dvd))}"
+          android:visibility="@{viewmodel.movie.dvd == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/boxOffice, viewmodel.movie.boxOffice))}"
+          android:visibility="@{viewmodel.movie.boxOffice == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/production, viewmodel.movie.production))}"
+          android:visibility="@{viewmodel.movie.production == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/website, viewmodel.movie.website))}"
+          android:visibility="@{viewmodel.movie.website == null ? View.GONE : View.VISIBLE}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/DetailsTextView"
+          android:text="@{Html.fromHtml(String.format(@string/response, viewmodel.movie.response))}"
+          android:visibility="@{viewmodel.movie.response == null ? View.GONE : View.VISIBLE}"/>
+      </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

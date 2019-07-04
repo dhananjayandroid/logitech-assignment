@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.djay.logitech"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation appDependencies.glide
+    implementation appDependencies.shimmer
+    implementation appDependencies.material
+    implementation appDependencies.cardView
+    implementation appDependencies.appCompat
+    implementation appDependencies.recyclerView
+    annotationProcessor appDependencies.glideCompiler
+    implementation(appDependencies.glideOkHttp) {
+        exclude group: 'glide-parent'
+    }
+
+    //dagger- for dependency injection
+    implementation appDependencies.dagger
+    implementation appDependencies.daggerAndroidSupport
+    annotationProcessor appDependencies.daggerCompiler
+    annotationProcessor appDependencies.daggerAndroidProcessor
+
+    // for web-apis
+    implementation appDependencies.gson
+    implementation appDependencies.okhttp
+    implementation appDependencies.retrofit2
+    implementation appDependencies.retrofit2Converter
+    implementation appDependencies.okhttp3Logging
+    implementation  appDependencies.espressoContrib
+
+    //unit testing
+    testImplementation appDependencies.jUnit
+    testImplementation  appDependencies.mockitoCore
+    testImplementation appDependencies.mockitoInline
+    testImplementation  appDependencies.archCoreTesting
+    testImplementation  appDependencies.espressoIdlingResource
+    androidTestImplementation appDependencies.espresso
+    androidTestImplementation appDependencies.testRunner
+    androidTestImplementation  appDependencies.testRules
+}

@@ -1,0 +1,30 @@
+<resources>
+  <string name="app_name">Logitech</string>
+  <string name="title_item_detail">Item Detail</string>
+  <string name="movie_poster">movie poster</string>
+  <string name="year"> <![CDATA[<b>Year: </b>]]> %s</string>
+  <string name="rated"> <![CDATA[<b>Rated: </b>]]> %s</string>
+  <string name="released"> <![CDATA[<b>Released: </b>]]> %s</string>
+  <string name="runtime"> <![CDATA[<b>Runtime: </b>]]> %s</string>
+  <string name="genre"> <![CDATA[<b>Genre: </b>]]> %s</string>
+  <string name="director"> <![CDATA[<b>Director: </b>]]> %s</string>
+  <string name="writer"> <![CDATA[<b>Writer: </b>]]> %s</string>
+  <string name="actors"> <![CDATA[<b>Actors: </b>]]> %s</string>
+  <string name="language"> <![CDATA[<b>Language: </b>]]> %s</string>
+  <string name="country"> <![CDATA[<b>Country: </b>]]> %s</string>
+  <string name="awards"> <![CDATA[<b>Awards: </b>]]> %s</string>
+  <string name="poster"> <![CDATA[<b>Poster: </b>]]> %s</string>
+  <string name="ratings"> <![CDATA[<b>Ratings: </b>]]> %s</string>
+  <string name="metascore"> <![CDATA[<b>MetaScore: </b>]]> %s</string>
+  <string name="imdbRating"> <![CDATA[<b>Imdb Rating: </b>]]> %s</string>
+  <string name="imdbVotes"> <![CDATA[<b>Imdb Votes: </b>]]> %s</string>
+  <string name="imdbID"> <![CDATA[<b>ImdbID: </b>]]> %s</string>
+  <string name="type"> <![CDATA[<b>Type: </b>]]> %s</string>
+  <string name="dvd"> <![CDATA[<b>DVD: </b>]]> %s</string>
+  <string name="boxOffice"> <![CDATA[<b>BoxOffice: </b>]]> %s</string>
+  <string name="production"> <![CDATA[<b>Production: </b>]]> %s</string>
+  <string name="website"> <![CDATA[<b>Website: </b>]]> %s</string>
+  <string name="response"> <![CDATA[<b>Response: </b>]]> %s</string>
+  <string name="movie_title">Movie Title</string>
+  <string name="error_in_response">Something went wrong...</string>
+</resources>
